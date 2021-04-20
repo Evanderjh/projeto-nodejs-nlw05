@@ -1,7 +1,17 @@
 import express, { request, response } from 'express';
 
+import "./database";
+import { routes } from "./routes";
+
 const app = express();
 
+app.use(express.json());
+
+app.use(routes);
+
+app.listen(3333, () => console.log("Server is running on port 3333"));
+
+/*
 app.get("/", (request, response) => {
   //return response.send("Olá NLW 05");
   return response.json({
@@ -13,9 +23,8 @@ app.post("/", (request, response) => {
   return response.json({ message: "Usuário salvo com sucesso!" })
 })
 
-app.listen(3333, () => console.log("Server is running on port 3333"));
 
-/*
+
 Quando aparecer 3 pontinhos na importação da biblioteca, significa que temos
 que instalgar as tipagens da biblioteca.
 
@@ -23,6 +32,8 @@ Neste caso damos o seguinte comando no terminal
 
 npm i @types/express -D
 -D é para instalar como dependencia de desenvolvimento
+O express é uma união das ferramentas básicas do node, e facilita a criação de
+rotas
 
 Após instalar o express, intalamos tbm o typescript, tbm como dependencia
 de desenvolvimento e após a instalação, fazemos o comando:
