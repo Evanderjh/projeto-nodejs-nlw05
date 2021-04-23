@@ -1,5 +1,6 @@
 import { http } from './http';
 import './websocket/client';
+import './websocket/admin';
 
 http.listen(3333, () => console.log("Server is running on port 3333"));
 
@@ -14,8 +15,6 @@ app.get("/", (request, response) => {
 app.post("/", (request, response) => {
   return response.json({ message: "Usuário salvo com sucesso!" })
 })
-
-
 
 Quando aparecer 3 pontinhos na importação da biblioteca, significa que temos
 que instalgar as tipagens da biblioteca.
